@@ -1,0 +1,71 @@
+{
+    "name": "devoxx-2014-frontend",
+    "description": "Frontend application for Devoxx 2014",
+    "version": "0.0.1",
+    "main": "./src/javascripts/main.js",
+    "private": true,
+    "license": "private",
+    "dependencies": {
+        "less": ">= 1.6.3",
+        "bootstrap": "3.0.0",
+        "jquery": ">= 2.1",
+        "requirejs": "~2.1.8",
+        "requirejs-text": "~2.0.10",
+        "requirejs-i18n": "~2.0.4",
+        "requirejs-tpl": "https://github.com/jfparadis/requirejs-tpl.git",
+        "backbone.marionette": "~1.5.1"
+    },
+    "ignore": [
+        "bower_components",
+        "node_modules",
+        "test",
+        ".*",
+        "README*",
+        "bower.json",
+        "karma.conf.js",
+        "Gruntfile.js",
+        "package.json"
+    ],
+    "exportsOverride": {
+        "less": {
+            "js": "dist/less-1.6.3.js"
+        },
+        "bootstrap": {
+            "js": "dist/js/bootstrap.js",
+            "less": "less/*",
+            "fonts": "fonts/*"
+        },
+        "requirejs": {
+            "js": "require.js"
+        },
+        "requirejs-text": {
+            "js": "text.js"
+        },
+        "requirejs-tpl": {
+            "js": "tpl.js"
+        },
+        "backbone.babysitter": {
+            "js": "lib/amd/backbone.babysitter.js"
+        },
+        "backbone.wreqr": {
+            "js": "lib/amd/backbone.wreqr.js"
+        },
+        "backbone.marionette": {
+            "js": "lib/core/amd/backbone.marionette.js"
+        },
+        "backbone": {
+            "js": "backbone.js"
+        },
+        "underscore": {
+            "js": "underscore.js"
+        },
+        "jquery": {
+            "js": "dist/jquery.js"
+        },
+        "*": {
+            "js": "**/*.js",
+            "css": "**/*.min.css",
+            "css/icons": "**/icons/**/*"
+        }
+    }
+}

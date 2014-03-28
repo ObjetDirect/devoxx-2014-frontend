@@ -1,0 +1,46 @@
+<% if (model.id) { %>
+<h1><%= globalization.users.edit.title %></h1>
+<% } else { %>
+<h1><%= globalization.users.edit.title2 %></h1>
+<% } %>
+
+<form class="form-horizontal" role="form">
+    <% if (model.id) { %>
+    <input type="hidden" name="id" value="<%= model.id %>" />
+    <% } %>
+
+    <div class="jumbotron">
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="user-firstname"> <%= globalization.users.edit.labels.firstname %>:</label>
+            <div class="col-sm-10">
+                <input type="text" id="user-firstname" name="firstName" required="required" value="<%- model.firstName %>" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="user-lastname"> <%= globalization.users.edit.labels.lastname %>:</label>
+            <div class="col-sm-10">
+                <input type="text" id="user-lastname" name="lastName" required="required" value="<%- model.lastName %>" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="user-age"> <%= globalization.users.edit.labels.age %>:</label>
+            <div class="col-sm-10">
+                <input type="number" id="user-age" name="age" required="required" value="<%- model.age %>" min="0" max="150" pattern="\d*" />
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">
+            <i class="glyphicon glyphicon-pencil glyphicon-white"></i>
+            <span><%= globalization.users.edit.buttons.save %></span>
+        </button>
+
+        <a href="#/users" class="btn btn-default">
+            <i class="glyphicon glyphicon-arrow-left"></i>
+            <span><%= globalization.users.edit.buttons.cancel %></span>
+        </a>
+    </div>
+</form>
