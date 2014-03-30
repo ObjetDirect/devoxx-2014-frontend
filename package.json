@@ -33,12 +33,6 @@
         "karma-junit-reporter": "~0.1.0",
         "grunt-karma": "~0.6.2",
 
-        "http-proxy": "~1.0.2",
-        "express": "~3.2.2",
-        "grunt-express": "~1.2.1",
-        "grunt-contrib-watch": "~0.5.3",
-        "grunt-open": "~0.2.2",
-
         "grunt-contrib-requirejs": "~0.4.1",
         "grunt-contrib-copy": "~0.4.1",
         "grunt-contrib-clean": "~0.4.1",

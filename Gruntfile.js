@@ -8,7 +8,6 @@
  *  - grunt dependencies
  *  - grunt tests
  *  - grunt reports
- *  - grunt server
  *  - grunt dist
  */
 var path = require('path');
@@ -131,42 +130,6 @@ module.exports = function (grunt) {
                     'dir': targetFolderPath + '/coverage-reports',
                     'file': 'report-test-cobertura.xml'
                 }
-            }
-        },
-
-        // -----------------------------------------------------------------------------------
-        // -- Live edit part
-
-        // grunt-express will serve the files from the folders listed in `bases`
-        // on specified `port` and `hostname`
-        'express': {
-            'all': {
-                'options': {
-                    'port': 9002,
-                    'hostname': 'localhost',
-                    'server': path.resolve(__dirname, 'livereload.js'), // Prefer using this instead of 'bases': mostly faster !
-                    'livereload': true
-                }
-            }
-        },
-
-        // grunt-watch will monitor the projects files
-        'watch': {
-            'all': {
-                'files': [
-                    srcFolderPath + '/**/*'
-                ],
-                'options': {
-                    'livereload': true
-                }
-            }
-        },
-
-        // grunt-open will open your browser at the project's URL
-        'open': {
-            'all': {
-                // Gets the port from the connect configuration
-                'path': 'http://localhost:<%= express.all.options.port%>/src/index.html'
             }
         },
 
@@ -410,9 +373,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-combine');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-strip');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-express');
-    grunt.loadNpmTasks('grunt-open');
 
     grunt.renameTask('clean', 'contrib-clean');
 
@@ -448,14 +408,6 @@ module.exports = function (grunt) {
     grunt.registerTask('tests', [
         'contrib-clean:tests',
         'karma'
-    ]);
-
-    // Task for the server (live reload)
-    // Creates the `server` task
-    grunt.registerTask('server', [
-        'express',
-        'open',
-        'watch'
     ]);
 
     // Task for the distribution
