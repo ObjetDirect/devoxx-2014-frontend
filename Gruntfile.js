@@ -51,89 +51,6 @@ module.exports = function (grunt) {
         },
 
         // -----------------------------------------------------------------------------------
-        // -- Reports part
-        // JsDoc
-        'jsdoc': {
-            'build': {
-                'src': [srcFolderPath + '/javascripts/**/*.js'],
-                'options': {
-                    'destination': targetFolderPath + '/jsdoc3'
-                }
-            }
-        },
-
-        // JsHint part
-        'jshint': {
-            'options': {
-                'force': true,
-                'reporter': 'checkstyle',
-                'reporterOutput': targetFolderPath + '/report-jshint-checkstyle.xml'
-            },
-            'strict': {
-                'src': [srcFolderPath + '/javascripts/**/*.js'],
-                // See https://github.com/jshint/jshint/blob/master/examples/.jshintrc
-                'jshintrc': '.jshintrc'
-            }
-        },
-
-        // LessLint part
-        'lesslint': {
-            'options': {
-                'formatters': [
-                    // See https://github.com/gruntjs/grunt-contrib-csslint#formatters
-                    {
-                        'id': 'checkstyle-xml',
-                        'dest': targetFolderPath + '/report-lesslint-checkstyle.xml'
-                    }
-                ]
-            },
-            'strict': {
-                'force': true,
-                'src': [srcFolderPath + '/stylesheets/**/*.less'],
-                'csslint': {
-                    // See https://github.com/stubbornella/csslint/wiki/Rules
-                    // See too https://github.com/gruntjs/grunt-contrib-csslint#options
-                    'overqualified-elements': false,
-                    'fallback-colors': true,
-                    'empty-rules': true,
-                    'duplicate-properties': true,
-                    'known-properties': true,
-                    'non-link-hover': true,
-                    'adjoining-classes': false,
-                    'import': true,
-                    'font-faces': 2,
-                    'universal-selector': true,
-                    'zero-units': false,
-                    'floats': true,
-                    'font-sizes': true,
-                    'important': false
-                }
-            }
-        },
-
-        // -----------------------------------------------------------------------------------
-        // -- Tests part
-        // Karma part
-        'karma': {
-            'test': {
-                'configFile': 'karma.conf.js',
-                'runnerPort': 9999,
-                'singleRun': true,
-                'browsers': ['PhantomJS'],
-                'reporters': ['progress', 'junit', 'coverage'],
-                'junitReporter': {
-                    'outputFile': targetFolderPath + '/report-test-junit.xml',
-                    'suite': 'unit'
-                },
-                'coverageReporter': {
-                    'type': 'cobertura',
-                    'dir': targetFolderPath + '/coverage-reports',
-                    'file': 'report-test-cobertura.xml'
-                }
-            }
-        },
-
-        // -----------------------------------------------------------------------------------
         // -- Distribution part
         // RequireJS part
         'requirejs': {
@@ -228,12 +145,6 @@ module.exports = function (grunt) {
             },
             'all': {
                 'src': [targetFolderPath]
-            },
-            'tests': {
-                'src': [targetFolderPath + '/coverage-reports', targetFolderPath + '/report-test-junit.xml']
-            },
-            'reports': {
-                'src': [targetFolderPath + '/jsdoc3', targetFolderPath + '/report-jshint-checkstyle.xml', targetFolderPath + '/report-lesslint-checkstyle.xml']
             },
             'build': {
                 'src': [tempWebAppBuildPath]
@@ -358,11 +269,7 @@ module.exports = function (grunt) {
 
     // Load grunt tasks from NPM packages
     grunt.loadNpmTasks('grunt-bower-task');
-    grunt.loadNpmTasks('grunt-jsdoc');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-contrib-less');
-    grunt.loadNpmTasks('grunt-lesslint');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-clean');
@@ -389,25 +296,6 @@ module.exports = function (grunt) {
     // Task for the dependencies
     grunt.registerTask('dependencies', [
         'bower:install'
-    ]);
-
-    // Task for the reports
-    grunt.registerTask('reports', 'Generate reports', function () {
-        //http://stackoverflow.com/questions/15423851/how-do-you-make-grunt-js-not-crash-on-warnings-by-default
-        // always use force when watching
-        grunt.option('force', true);
-        grunt.task.run([
-            'contrib-clean:reports',
-            'jsdoc',
-            'jshint',
-            'lesslint'
-        ]);
-    });
-
-    // Task for the tests
-    grunt.registerTask('tests', [
-        'contrib-clean:tests',
-        'karma'
     ]);
 
     // Task for the distribution
