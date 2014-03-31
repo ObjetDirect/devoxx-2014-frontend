@@ -6,8 +6,6 @@
  * To have some specifics tasks:
  *  - grunt clean
  *  - grunt dependencies
- *  - grunt tests
- *  - grunt reports
  *  - grunt dist
  */
 var path = require('path');
@@ -227,7 +225,7 @@ module.exports = function (grunt) {
                         'string': '<html manifest=manifest.appcache'
                     },
                     {
-                        'token': '<script type=text/javascript charset=UTF-8 defer=defer src=./frameworks/less/less-1.3.0.js></script>',
+                        'token': '<script type=text/javascript charset=UTF-8 defer=defer src=./frameworks/less/less-1.6.3.js></script>',
                         'string': ' ' // Cannot set an empty character ...
                     },
                     {
