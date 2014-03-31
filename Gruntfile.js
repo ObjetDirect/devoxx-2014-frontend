@@ -316,7 +316,7 @@ module.exports = function (grunt) {
                         'string': '<html manifest=manifest.appcache'
                     },
                     {
-                        'token': '<script type=text/javascript charset=UTF-8 defer=defer src=./frameworks/less/less-1.3.0.js></script>',
+                        'token': '<script type=text/javascript charset=UTF-8 defer=defer src=./frameworks/less/less-1.6.3.js></script>',
                         'string': ' ' // Cannot set an empty character ...
                     },
                     {
