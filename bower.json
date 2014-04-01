@@ -6,7 +6,6 @@
     "private": true,
     "license": "private",
     "dependencies": {
-        "less": ">= 1.6.3",
         "bootstrap": "3.0.0",
         "jquery": ">= 2.1",
         "requirejs": "~2.1.8",
@@ -27,13 +26,9 @@
         "package.json"
     ],
     "exportsOverride": {
-        "less": {
-            "js": "dist/less-1.6.3.js"
-        },
         "bootstrap": {
-            "js": "dist/js/bootstrap.js",
-            "less": "less/*",
-            "fonts": "fonts/*"
+            "css": "dist/css/*",
+            "fonts": "dist/fonts/*"
         },
         "requirejs": {
             "js": "require.js"

@@ -2,7 +2,6 @@
 What do you need ?
 * Install NodeJs: http://nodejs.org/
 * Install Git: https://code.google.com/p/msysgit/ or http://git-scm.com/download/win
-* Install PhantomJs: http://phantomjs.org/
 * Install Chrome: http://www.google.fr/intl/fr/chrome/browser/
 * Install SVN: http://subversion.tigris.org/
 
@@ -10,7 +9,6 @@ Next, put into the system PATH:
 * NodeJs bin
 * Git bin
 * SVN bin
-* PhantomJs bin (with the specified name: PHANTOMJS_BIN)
 * Chrome exe (with the specified name: CHROME_BIN)
 
 
@@ -36,44 +34,6 @@ HTTPS_PROXY http://proxy.company.com:8080
 After that, open a shell prompt, go to the current directory and type the following commands
 > npm install
     -> We will install required NodeJs main and development plugins
-
-> grunt default
-    -> If 'Logging some stuff...' appears, the install seems good
-
-> grunt dependencies
-    -> download all required dependencies for the application
-    -> we can do too: > grunt dependencies:install
-
-
---------------------------------------------------------------------------------------------------------------
-To clean the target folder
-> grunt clean
-
-To generate reports:
-> grunt reports
-
-To update dependencies
-> grunt dependencies
-
-To generate some reports
-> grunt reports
-
-To execute tests
-> grunt tests
-
-To generate the distribution application
-> grunt dist
-
-To enable the live loading (if you have include some reverse proxy, be sure that the firewall of your post will not blocked you)
-> grunt server
-
-
-Nota Bene: if "grunt" is not recognized:
-* do a global install
-    > npm install -g grunt grunt-cli
-
-* use instead of the following command
-    > "./node_modules/bin/grunt" reports
 
 
 --------------------------------------------------------------------------------------------------------------
