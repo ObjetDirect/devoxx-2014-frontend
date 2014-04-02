@@ -1,5 +1,4 @@
 /*jshint expr:true, camelcase:false */
-/*global define:true */
 
 /**
  * A module to define the user write view
@@ -11,85 +10,77 @@
  * @version 1.0
  * @since 1.0
  */
-define(
-    [
-        'jquery',
-        'backbone',
-        'tpl!app/template/users/write',
-        'i18n!app/nls/globalization',
-        'app/routing/router',
-        'app/service/rounting',
-        'marionette'
-    ],
-    function ($, Backbone, writeTemplate, i18n, router, RoutingService) {
-        'use strict';
 
-        /**
-         * View for the user write view
-         * @class UserWriteView
-         * @type Backbone.Marionette.CompositeView
-         */
-        return  Backbone.Marionette.ItemView.extend({
-            // --------------------------------------------------------------------------------------------------------
-            // Base
+(function (Backbone, _, i18n, app) {
+	'use strict';
 
-            /**
-             * Define the template to use
-             * @method
-             * @param {Object} [modelJson] Object to represent the current model
-             * @returns {string} The template to inject
-             */
-            'template': function (modelJson) {
-                return writeTemplate($.extend({}, i18n, { 'model': modelJson }));
-            },
+	/**
+	 * View for the user write view
+	 * @class UserWriteView
+	 * @type Backbone.Marionette.CompositeView
+	 */
+	app.view.UserWriteView = Backbone.Marionette.ItemView.extend({
+		// --------------------------------------------------------------------------------------------------------
+		// Base
 
-            /**
-             * Contains a map of events of the view
-             * @memberOf UserWriteView.prototype
-             */
-            'events': {
-                'submit form': 'onSaveOrCreateUserHandler'
-            },
+		/**
+		 * Define the template to use
+		 * @method
+		 * @param {Object} [modelJson] Object to represent the current model
+		 * @returns {string} The template to inject
+		 */
+		'template': function (modelJson) {
+			var template =  _.template(document.querySelector('#template-users-write').innerHTML);
+			return template($.extend({}, i18n, { 'model': modelJson }));
+		},
 
-            // --------------------------------------------------------------------------------------------------------
-            // Handlers
+		/**
+		 * Contains a map of events of the view
+		 * @memberOf UserWriteView.prototype
+		 */
+		'events': {
+			'submit form': 'onSaveOrCreateUserHandler'
+		},
 
-            /**
-             * Handler to create or update a user
-             *
-             * @method
-             * @param {Event} event
-             */
-            'onSaveOrCreateUserHandler': function (event) {
-                event.preventDefault();
+		// --------------------------------------------------------------------------------------------------------
+		// Handlers
 
-                var serialize = { };
+		/**
+		 * Handler to create or update a user
+		 *
+		 * @method
+		 * @param {Event} event
+		 */
+		'onSaveOrCreateUserHandler': function (event) {
+			event.preventDefault();
 
-                $.each(
-                    $(event.target).serializeArray(),
-                    function (index, input) {
-                        serialize[input.name] = input.value;
-                    }
-                );
+			var serialize = { };
 
-                if (serialize.id) {
-                    serialize.id = window.parseInt(serialize.id, 10);
-                }
+			$.each(
+				$(event.target).serializeArray(),
+				function (index, input) {
+					serialize[input.name] = input.value;
+				}
+			);
 
-                serialize.age = window.parseInt(serialize.age, 10);
+			if (serialize.id) {
+				serialize.id = window.parseInt(serialize.id, 10);
+			}
 
-                this.model.save(
-                    serialize,
-                    {
-                        'error': function (model, jqXHR) {
-                            RoutingService.errorUserRedirection(jqXHR);
-                        },
-                        'success': function () {
-                            router.navigate('users', { 'trigger': true });
-                        }
-                    }
-                );
-            }
-        });
-    }
-);
+			serialize.age = window.parseInt(serialize.age, 10);
+
+			this.model.save(
+				serialize,
+				{
+					'error': function (model, jqXHR) {
+						RoutingService.errorUserRedirection(jqXHR);
+					},
+					'success': function () {
+						router.navigate('users', { 'trigger': true });
+					}
+				}
+			);
+		}
+	});
+	
+}(Backbone, _, window.i18n, window.app));

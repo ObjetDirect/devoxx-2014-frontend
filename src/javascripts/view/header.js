@@ -1,5 +1,4 @@
 /*jshint expr:true, camelcase:false */
-/*global define:true */
 
 /**
  * A module to define the header view
@@ -11,33 +10,28 @@
  * @version 1.0
  * @since 1.0
  */
-define(
-    [
-        'backbone',
-        'tpl!app/template/header',
-        'i18n!app/nls/globalization',
-        'marionette'
-    ],
-    function (Backbone, headerTemplate, i18n) {
-        'use strict';
 
-        /**
-         * View for the header view
-         * @class HeaderView
-         * @type Backbone.Marionette.CompositeView
-         */
-        return  Backbone.Marionette.ItemView.extend({
-            // --------------------------------------------------------------------------------------------------------
-            // Base
+(function (Backbone, _, i18n, app) {
+	'use strict';
 
-            /**
-             * Define the template to use
-             * @method
-             * @returns {string} The template to inject
-             */
-            'template': function () {
-                return headerTemplate(i18n);
-            }
-        });
-    }
-);
+	/**
+	 * View for the header view
+	 * @class HeaderView
+	 * @type Backbone.Marionette.CompositeView
+	 */
+	 app.view.HeaderView = Backbone.Marionette.ItemView.extend({
+		// --------------------------------------------------------------------------------------------------------
+		// Base
+
+		/**
+		 * Define the template to use
+		 * @method
+		 * @returns {string} The template to inject
+		 */
+		'template': function () {
+			var template =  _.template(document.querySelector('#template-header').innerHTML);
+			return template(i18n);
+		}
+	});
+		
+}(Backbone, _, window.i18n, window.app));

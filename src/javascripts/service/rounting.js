@@ -1,4 +1,3 @@
-/*global define: true */
 /*jshint expr:true */
 
 /**
@@ -11,17 +10,15 @@
  * @version 1.0
  * @since 1.0
  */
-define(
-    [
-        'app/routing/router'
-    ],
-    function (router) {
-        'use strict';
 
-        /**
-         * @alias module:RountingService
-         */
-       return {
+(function (Backbone, app) {
+	'use strict';
+	
+	/**
+	 * @alias module:RountingService
+	 */
+     app.service.RoutingService = 
+		{
            /**
             * Redirect to the right page in error case
             *
@@ -32,10 +29,10 @@ define(
             */
            'errorRedirection': function (jqXHR, urlFor404) {
                if (urlFor404 && jqXHR.status === 404) {
-                   router.navigate(urlFor404, { 'trigger': true, 'replace': true });
+                   app.router.navigate(urlFor404, { 'trigger': true, 'replace': true });
 
                } else {
-                   router.navigate('error', { 'trigger': true, 'replace': true });
+                   app.router.navigate('error', { 'trigger': true, 'replace': true });
                }
            },
 
@@ -50,5 +47,5 @@ define(
                this.errorRedirection(jqXHR, 'users/notfound');
            }
        };
-    }
-);
+		
+}(Backbone, window.app));

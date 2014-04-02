@@ -10,8 +10,8 @@
         <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' />
 
         <!-- Import styles -->
-		<link rel="stylesheet" type="text/css" media="screen" title="no title" href="./frameworks/bootstrap/css/bootstrap.css" />
-		<link rel="stylesheet" type="text/css" media="screen" title="no title" href="./frameworks/bootstrap/css/bootstrap-theme.css" />
+		<link rel="stylesheet" type="text/css" media="screen" title="no title" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" media="screen" title="no title" href="../bower_components/bootstrap/dist/css/bootstrap-theme.css" />
         <link rel="stylesheet" type="text/css" media="screen" title="no title" href="./stylesheets/style.css" />
     </head>
 
@@ -37,8 +37,152 @@
                 <p class="float-right">Requirejs: <a href="http://requirejs.org/" rel="external">http://requirejs.org/</a></p>
             </div>
         </nav>
+		
+		<!-- Templates -->
+		<script type="text/template" id="template-error">
+			<h1><%= globalization.error %></h1>
+		</script>
+
+		<script type="text/template" id="template-header">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#"><%= globalization.title %></a>
+			</div>
+		</script>
+
+		<script type="text/template" id="template-users-404">
+			<h1>404 - <%= globalization.users.notfound %></h1>
+		</script>
+
+		<script type="text/template" id="template-users-list">
+			<h1><%= globalization.users.list.title %></h1>
+
+			<table class="table table-striped table-bordered table-hover">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th><%= globalization.users.list.columns.firstname %></th>
+						<th><%= globalization.users.list.columns.lastname %></th>
+						<th>-</th>
+					</tr>
+				</thead>
+
+				<tbody class="items"></tbody>
+			</table>
+
+			<a href="#/users/create" class="btn btn-info">
+				<i class="glyphicon glyphicon-user"></i>
+				<span><%= globalization.users.list.buttons.create %></span>
+			</a>
+		</script>
+
+		<script type="text/template" id="template-users-list-item">
+			<td><%= model.id %></td>
+			<td><%- model.firstName %></td>
+			<td><%- model.lastName %></td>
+			<td>
+				<a href="#/users/<%= model.id %>/read" class="btn btn-default">
+					<i class="glyphicon glyphicon-user"></i>
+					<span><%= globalization.users.list.buttons.look %></span>
+				</a>
+
+				<a href="#" class="btn btn-danger" data-user-id="<%= model.id %>">
+					<i class="glyphicon glyphicon-trash"></i>
+					<span><%= globalization.users.list.buttons.delete %></span>
+				</a>
+			</td>
+		</script>
+
+		<script type="text/template" id="template-users-read">
+			<h1><%= globalization.users.read.title %></h1>
+
+			<div class="jumbotron">
+				<address>
+					<strong><%- model.lastName %> <%- model.firstName %></strong><br>
+					<abbr title="age"><%= globalization.users.read.labels.age %>:</abbr> <%- model.age %>
+				</address>
+			</div>
+
+			<hr />
+
+			<a href="#/users" class="btn btn-default">
+				<i class="glyphicon glyphicon-arrow-left"></i>
+				<span><%= globalization.users.read.buttons.back %></span>
+			</a>
+
+			<a href="#/users/<%= model.id %>" class="btn btn-primary">
+				<i class="glyphicon glyphicon-edit glyphicon-white"></i>
+				<span><%= globalization.users.read.buttons.edit %></span>
+			</a>
+		</script>
+
+		<script type="text/template" id="template-users-write">
+			<% if (model.id) { %>
+			<h1><%= globalization.users.edit.title %></h1>
+			<% } else { %>
+			<h1><%= globalization.users.edit.title2 %></h1>
+			<% } %>
+
+			<form class="form-horizontal" role="form">
+				<% if (model.id) { %>
+				<input type="hidden" name="id" value="<%= model.id %>" />
+				<% } %>
+
+				<div class="jumbotron">
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="user-firstname"> <%= globalization.users.edit.labels.firstname %>:</label>
+						<div class="col-sm-10">
+							<input type="text" id="user-firstname" name="firstName" required="required" value="<%- model.firstName %>" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="user-lastname"> <%= globalization.users.edit.labels.lastname %>:</label>
+						<div class="col-sm-10">
+							<input type="text" id="user-lastname" name="lastName" required="required" value="<%- model.lastName %>" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="user-age"> <%= globalization.users.edit.labels.age %>:</label>
+						<div class="col-sm-10">
+							<input type="number" id="user-age" name="age" required="required" value="<%- model.age %>" min="0" max="150" pattern="\d*" />
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary">
+						<i class="glyphicon glyphicon-pencil glyphicon-white"></i>
+						<span><%= globalization.users.edit.buttons.save %></span>
+					</button>
+
+					<a href="#/users" class="btn btn-default">
+						<i class="glyphicon glyphicon-arrow-left"></i>
+						<span><%= globalization.users.edit.buttons.cancel %></span>
+					</a>
+				</div>
+			</form>
+		</script>
 
         <!-- Import JavaScript files here -->
-        <script type="text/javascript" defer="defer" src="./frameworks/requirejs/require.js" data-main="javascripts/main"></script>
+        <script type="text/javascript" defer="defer" src="../bower_components/jquery/dist/jquery.js"></script>
+		<script type="text/javascript" defer="defer" src="../bower_components/underscore/underscore.js"></script>
+		<script type="text/javascript" defer="defer" src="../bower_components/backbone/backbone.js"></script>
+		<script type="text/javascript" defer="defer" src="../bower_components/backbone.wreqr/lib/backbone.wreqr.js"></script>
+		<script type="text/javascript" defer="defer" src="../bower_components/backbone.babysitter/lib/backbone.babysitter.js"></script>
+		<script type="text/javascript" defer="defer" src="../bower_components/backbone.marionette/lib/core/backbone.marionette.js"></script>
+		<script type="text/javascript" defer="defer" src="./javascripts/app.js"></script>
+		<script type="text/javascript" defer="defer" src="./javascripts/model/user.js"></script>
+		<script type="text/javascript" defer="defer" src="./javascripts/model/users.js"></script>
+		<script type="text/javascript" defer="defer" src="./javascripts/routing/router.js"></script>
+		<script type="text/javascript" defer="defer" src="./javascripts/service/rounting.js"></script>
+		<script type="text/javascript" defer="defer" src="./javascripts/view/error.js"></script>
+		<script type="text/javascript" defer="defer" src="./javascripts/view/header.js"></script>
+		<script type="text/javascript" defer="defer" src="./javascripts/view/users/not-found.js"></script>
+		<script type="text/javascript" defer="defer" src="./javascripts/view/users/list-item.js"></script>
+		<script type="text/javascript" defer="defer" src="./javascripts/view/users/read.js"></script>
+		<script type="text/javascript" defer="defer" src="./javascripts/view/users/write.js"></script>
+		<script type="text/javascript" defer="defer" src="./javascripts/routing/definitions.js"></script>
+		<script type="text/javascript" defer="defer" src="./javascripts/main.js"></script>
     </body>
 </html>
