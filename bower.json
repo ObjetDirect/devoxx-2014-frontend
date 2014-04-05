@@ -23,49 +23,8 @@
         "README*",
         "bower.json",
         "karma.conf.js",
+        "livereload.js",
         "Gruntfile.js",
         "package.json"
-    ],
-    "exportsOverride": {
-        "less": {
-            "js": "dist/less-1.6.3.js"
-        },
-        "bootstrap": {
-            "js": "dist/js/bootstrap.js",
-            "less": "less/*",
-            "fonts": "fonts/*"
-        },
-        "requirejs": {
-            "js": "require.js"
-        },
-        "requirejs-text": {
-            "js": "text.js"
-        },
-        "requirejs-tpl": {
-            "js": "tpl.js"
-        },
-        "backbone.babysitter": {
-            "js": "lib/amd/backbone.babysitter.js"
-        },
-        "backbone.wreqr": {
-            "js": "lib/amd/backbone.wreqr.js"
-        },
-        "backbone.marionette": {
-            "js": "lib/core/amd/backbone.marionette.js"
-        },
-        "backbone": {
-            "js": "backbone.js"
-        },
-        "underscore": {
-            "js": "underscore.js"
-        },
-        "jquery": {
-            "js": "dist/jquery.js"
-        },
-        "*": {
-            "js": "**/*.js",
-            "css": "**/*.min.css",
-            "css/icons": "**/icons/**/*"
-        }
-    }
+    ]
 }
