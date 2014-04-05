@@ -26,14 +26,12 @@ define(
             {
                 /**
                  * Default values
-                 * @property {string} [id=null] User identity
                  * @property {string} [firstName='A default firstname'] Firstname
                  * @property {string} [lastName='A default lastname'] Lastname
                  * @property {number} [age=18] Age of the user
                  * @property {boolean} [enable=true] Is the user enable ?
                  */
                 'defaults': {
-                    'id': null,
                     'firstName': 'A default firstname',
                     'lastName': 'A default lastname',
                     'age': 18,
@@ -44,7 +42,13 @@ define(
                  * REST url to manipulate the list of projects
                  * @type {string}
                  */
-                'urlRoot': '/api/users'
+                'urlRoot': '/api/users',
+
+                /**
+                 * On which attribute shall we find the identity
+                 * @type {string}
+                 */
+                'idAttribute': '_id'
             }
         );
     }

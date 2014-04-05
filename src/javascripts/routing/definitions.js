@@ -76,7 +76,7 @@ define(
                     'app/view/users/read'
                 ],
                 function (UserModel, UserReadView) {
-                    var userModel = new UserModel({  'id': userId});
+                    var userModel = new UserModel({  '_id': userId});
                     userModel.fetch({
                         'success': function () {
                             app.pageContent.show(new UserReadView({ 'model': userModel }));
@@ -98,7 +98,7 @@ define(
                     'app/view/users/write'
                 ],
                 function (UserModel, UserWriteView) {
-                    var userModel = new UserModel({  'id': userId});
+                    var userModel = new UserModel({  '_id': userId});
                     userModel.fetch({
                         'success': function () {
                             app.pageContent.show(new UserWriteView({ 'model': userModel }));
