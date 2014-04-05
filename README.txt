@@ -18,6 +18,7 @@ If you have a proxy:
 You have a configuration property to configure Git
 git config --global http.proxy http://proxy.company.com:8080
 git config --global https.proxy http://proxy.company.com:8080
+git config --global http.sslVerify false
 
 And if needed
 git config --global url."https://".insteadOf git://
@@ -25,6 +26,7 @@ git config --global url."https://".insteadOf git://
 You have two configuration properties to configure NPM
 npm config set proxy http://proxy.company.com:8080
 npm config set https-proxy http://proxy.company.com:8080
+npm set strict-ssl false
 
 For Bower, put into the PATH the variable "HTTP_PROXY"
 HTTP_PROXY http://proxy.company.com:8080

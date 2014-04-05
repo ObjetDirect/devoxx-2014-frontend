@@ -44,7 +44,7 @@
 
 	// User display route
 	app.router.route('users/:userId/read', 'users-read', function (userId) {
-		var userModel = new app.model.UserModel({  'id': userId});
+		var userModel = new app.model.UserModel({  '_id': userId});
 		userModel.fetch({
 			'success': function () {
 				app.pageContent.show(new app.view.UserReadView({ 'model': userModel }));
@@ -57,7 +57,7 @@
 
 	// User edition route
 	app.router.route('users/:userId', 'users-write', function (userId) {
-		var userModel = new app.model.UserModel({  'id': userId});
+		var userModel = new app.model.UserModel({  '_id': userId});
 		userModel.fetch({
 			'success': function () {
 				app.pageContent.show(new app.view.UserWriteView({ 'model': userModel }));
