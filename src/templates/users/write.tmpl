@@ -1,12 +1,12 @@
-<% if (model.id) { %>
+<% if (model._id) { %>
 <h1><%= globalization.users.edit.title %></h1>
 <% } else { %>
 <h1><%= globalization.users.edit.title2 %></h1>
 <% } %>
 
 <form class="form-horizontal" role="form">
-    <% if (model.id) { %>
-    <input type="hidden" name="id" value="<%= model.id %>" />
+    <% if (model._id) { %>
+    <input type="hidden" name="_id" value="<%= model._id %>" />
     <% } %>
 
     <div class="jumbotron">
