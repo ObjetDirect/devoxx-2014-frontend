@@ -78,7 +78,7 @@ define(
              * @param {MouseEvent} event
              */
             'onDeleteUserHandler': function (event) {
-                var id = window.parseInt($(event.currentTarget).data('user-id'), 10);
+                var id = $(event.currentTarget).data('user-id');
                 this.collection.get(id).destroy();
             }
         });
