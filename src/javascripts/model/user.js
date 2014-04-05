@@ -39,7 +39,13 @@
 			 * REST url to manipulate the list of projects
 			 * @type {string}
 			 */
-			'urlRoot': '/api/users'
+			'urlRoot': '/api/users',
+
+			/**
+			 * On which attribute shall we find the identity
+			 * @type {string}
+			 */
+			'idAttribute': '_id'
 		}
 	);
 		

@@ -63,10 +63,6 @@
 				}
 			);
 
-			if (serialize.id) {
-				serialize.id = window.parseInt(serialize.id, 10);
-			}
-
 			serialize.age = window.parseInt(serialize.age, 10);
 
 			this.model.save(

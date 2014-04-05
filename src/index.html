@@ -10,8 +10,8 @@
         <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' />
 
         <!-- Import styles -->
-		<link rel="stylesheet" type="text/css" media="screen" title="no title" href="./bootstrap/css/bootstrap.css" />
-		<link rel="stylesheet" type="text/css" media="screen" title="no title" href="./bootstrap/css/bootstrap-theme.css" />
+		<link rel="stylesheet" type="text/css" media="screen" title="no title" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" media="screen" title="no title" href="../bower_components/bootstrap/dist/css/bootstrap-theme.css" />
         <link rel="stylesheet" type="text/css" media="screen" title="no title" href="./stylesheets/style.css" />
     </head>
 
@@ -76,16 +76,16 @@
 		</script>
 
 		<script type="text/template" id="template-users-list-item">
-			<td><%= model.id %></td>
+			<td><%= model._id %></td>
 			<td><%- model.firstName %></td>
 			<td><%- model.lastName %></td>
 			<td>
-				<a href="#/users/<%= model.id %>/read" class="btn btn-default">
+				<a href="#/users/<%= model._id %>/read" class="btn btn-default">
 					<i class="glyphicon glyphicon-user"></i>
 					<span><%= globalization.users.list.buttons.look %></span>
 				</a>
 
-				<a href="#" class="btn btn-danger" data-user-id="<%= model.id %>">
+				<a href="#" class="btn btn-danger" data-user-id="<%= model._id %>">
 					<i class="glyphicon glyphicon-trash"></i>
 					<span><%= globalization.users.list.buttons.delete %></span>
 				</a>
@@ -109,22 +109,22 @@
 				<span><%= globalization.users.read.buttons.back %></span>
 			</a>
 
-			<a href="#/users/<%= model.id %>" class="btn btn-primary">
+			<a href="#/users/<%= model._id %>" class="btn btn-primary">
 				<i class="glyphicon glyphicon-edit glyphicon-white"></i>
 				<span><%= globalization.users.read.buttons.edit %></span>
 			</a>
 		</script>
 
 		<script type="text/template" id="template-users-write">
-			<% if (model.id) { %>
+			<% if (model._id) { %>
 			<h1><%= globalization.users.edit.title %></h1>
 			<% } else { %>
 			<h1><%= globalization.users.edit.title2 %></h1>
 			<% } %>
 
 			<form class="form-horizontal" role="form">
-				<% if (model.id) { %>
-				<input type="hidden" name="id" value="<%= model.id %>" />
+				<% if (model._id) { %>
+				<input type="hidden" name="_id" value="<%= model._id %>" />
 				<% } %>
 
 				<div class="jumbotron">
@@ -165,12 +165,12 @@
 		</script>
 
         <!-- Import JavaScript files here -->
-        <script type="text/javascript" defer="defer" src="jquery.js"></script>
-		<script type="text/javascript" defer="defer" src="underscore.js"></script>
-		<script type="text/javascript" defer="defer" src="backbone.js"></script>
-		<script type="text/javascript" defer="defer" src="backbone.wreqr.js"></script>
-		<script type="text/javascript" defer="defer" src="backbone.babysitter.js"></script>
-		<script type="text/javascript" defer="defer" src="backbone.marionette.js"></script>
+        <script type="text/javascript" defer="defer" src="../bower_components/jquery/dist/jquery.js"></script>
+		<script type="text/javascript" defer="defer" src="../bower_components/underscore/underscore.js"></script>
+		<script type="text/javascript" defer="defer" src="../bower_components/backbone/backbone.js"></script>
+		<script type="text/javascript" defer="defer" src="../bower_components/backbone.wreqr/lib/backbone.wreqr.js"></script>
+		<script type="text/javascript" defer="defer" src="../bower_components/backbone.babysitter/lib/backbone.babysitter.js"></script>
+		<script type="text/javascript" defer="defer" src="../bower_components/backbone.marionette/lib/core/backbone.marionette.js"></script>
 		<script type="text/javascript" defer="defer" src="./javascripts/app.js"></script>
 		<script type="text/javascript" defer="defer" src="./javascripts/model/user.js"></script>
 		<script type="text/javascript" defer="defer" src="./javascripts/model/users.js"></script>
