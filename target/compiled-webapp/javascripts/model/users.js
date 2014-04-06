@@ -1,0 +1,1 @@
+define(["backbone","app/model/user"],function(Backbone,UserModel){return Backbone.Collection.extend({model:UserModel,url:"/api/users"})});

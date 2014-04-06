@@ -1,0 +1,1 @@
+define(["backbone"],function(Backbone){return Backbone.Model.extend({defaults:{firstName:"A default firstname",lastName:"A default lastname",age:18,enable:!0},urlRoot:"/api/users",idAttribute:"_id"})});

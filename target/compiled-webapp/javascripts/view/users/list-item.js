@@ -1,0 +1,1 @@
+define(["jquery","backbone","tpl!app/template/users/list-item","i18n!app/nls/globalization","marionette"],function($,Backbone,listItemTemplate,i18n){return Backbone.Marionette.ItemView.extend({template:function(modelJson){return listItemTemplate($.extend({},i18n,{model:modelJson}))},tagName:"tr"})});

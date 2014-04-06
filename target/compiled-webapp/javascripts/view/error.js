@@ -1,0 +1,1 @@
+define(["backbone","tpl!app/template/error","i18n!app/nls/globalization","marionette"],function(Backbone,errorTemplate,i18n){return Backbone.Marionette.ItemView.extend({template:function(){return errorTemplate(i18n)}})});
