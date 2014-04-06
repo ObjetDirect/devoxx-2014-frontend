@@ -1,1 +1,0 @@
-define(["backbone","tpl!app/template/header","i18n!app/nls/globalization","marionette"],function(Backbone,headerTemplate,i18n){return Backbone.Marionette.ItemView.extend({template:function(){return headerTemplate(i18n)}})});

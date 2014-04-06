@@ -1,1 +1,0 @@
-define(["jquery","backbone","tpl!app/template/users/read","i18n!app/nls/globalization","marionette"],function($,Backbone,readTemplate,i18n){return Backbone.Marionette.ItemView.extend({template:function(modelJson){return readTemplate($.extend({},i18n,{model:modelJson}))}})});
