@@ -7,6 +7,10 @@ var path = require('path');
 module.exports = function(grunt, options){
     'use strict';
 
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-express');
+    grunt.loadNpmTasks('grunt-open');
+
     return {
         'tasks': {
             // grunt-express will serve the files from the folders listed in `bases`

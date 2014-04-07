@@ -21,28 +21,6 @@ module.exports = function (grunt) {
         targetFolderPath = './target',
         tempWebAppBuildPath = targetFolderPath + '/compiled-webapp';
 
-
-    // Load grunt tasks from NPM packages
-    grunt.loadNpmTasks('grunt-bower-task');
-    grunt.loadNpmTasks('grunt-jsdoc');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-karma');
-    grunt.loadNpmTasks('grunt-contrib-less');
-    grunt.loadNpmTasks('grunt-lesslint');
-    grunt.loadNpmTasks('grunt-contrib-requirejs');
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-htmlmin');
-    grunt.loadNpmTasks('grunt-contrib-imagemin');
-    grunt.loadNpmTasks('grunt-svgmin');
-    grunt.loadNpmTasks('grunt-manifest');
-    grunt.loadNpmTasks('grunt-combine');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-strip');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-express');
-    grunt.loadNpmTasks('grunt-open');
-
     // Grunt configuration
     grunt.initConfig(
         require('load-grunt-configs')(

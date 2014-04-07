@@ -5,6 +5,10 @@ var path = require('path');
 
 // Dependencies configuration
 module.exports = function(grunt, options){
+    'use strict';
+
+    grunt.loadNpmTasks('grunt-bower-task');
+
     return {
         'tasks': {
             // Bower part

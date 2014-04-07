@@ -5,6 +5,18 @@
 module.exports = function(grunt, options){
     'use strict';
 
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-contrib-requirejs');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-htmlmin');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-svgmin');
+    grunt.loadNpmTasks('grunt-manifest');
+    grunt.loadNpmTasks('grunt-combine');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-strip');
+
     return {
         'tasks': {
             // RequireJS part
@@ -80,6 +92,18 @@ module.exports = function(grunt, options){
             },
 
             // Other parts
+            'clean': {
+                'build': {
+                    'src': [options.tempWebAppBuildPath]
+                },
+                'requirejs': {
+                    'src': [options.tempWebAppBuildPath + '/javascripts-build']
+                },
+                'less': {
+                    'src': [options.tempWebAppBuildPath + '/**/*.less']
+                }
+            },
+
             'copy': {
                 'build': {
                     'files': [

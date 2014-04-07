@@ -5,6 +5,11 @@
 module.exports = function(grunt, options){
     'use strict';
 
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-jsdoc');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-lesslint');
+
     return {
         'tasks': {
             // JsDoc
@@ -63,6 +68,13 @@ module.exports = function(grunt, options){
                         'font-sizes': true,
                         'important': false
                     }
+                }
+            },
+
+            // Other parts
+            'clean': {
+                'reports': {
+                    'src': [options.targetFolderPath + '/jsdoc3', options.targetFolderPath + '/report-jshint-checkstyle.xml', options.targetFolderPath + '/report-lesslint-checkstyle.xml']
                 }
             }
         }
