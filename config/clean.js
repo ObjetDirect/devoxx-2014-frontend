@@ -4,6 +4,10 @@
 
 // Clean configuration
 module.exports = function(grunt, options){
+    'use strict';
+
+    grunt.loadNpmTasks('grunt-contrib-clean');
+
     return {
         'tasks': {
             // Other parts
