@@ -1,4 +1,4 @@
-/*global define: true, describe: true, it: true, expect: true, runs: true, waitsFor: true, spyOn: true */
+/*global define: true, describe: true, it: true, expect: true */
 
 /**
  * A module to check if karma can run tests
