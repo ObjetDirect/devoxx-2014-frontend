@@ -11,7 +11,7 @@
  * @since 1.0
  */
 
-(function (Backbone, _, i18n, app) {
+(function ($, Backbone, _, i18n, app) {
 	'use strict';
 
 	/**
@@ -40,4 +40,4 @@
 		'tagName': 'tr'
 	});
 	
-}(Backbone, _, window.i18n, window.app));
+}(jQuery, Backbone, _, window.i18n, window.app));

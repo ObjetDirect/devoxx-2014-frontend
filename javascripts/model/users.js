@@ -30,6 +30,7 @@
 			 * @type {string}
 			 */
 			'url': '/api/users'
+//            'url': 'http://localhost:9000/api/users'
 		}
 	);
 		

@@ -40,6 +40,7 @@
 			 * @type {string}
 			 */
 			'urlRoot': '/api/users',
+//            'urlRoot': 'http://localhost:9000/api/users',
 
 			/**
 			 * On which attribute shall we find the identity

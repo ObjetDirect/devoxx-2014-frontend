@@ -10,7 +10,7 @@
  * @since 1.0
  */
 
-(function (Backbone, _, i18n, app) {
+(function ($, Backbone, _, i18n, app) {
 	'use strict';
 
 	/**
@@ -34,4 +34,4 @@
 		}
 	});
 	
-}(Backbone, _, window.i18n, window.app));
+}(jQuery, Backbone, _, window.i18n, window.app));

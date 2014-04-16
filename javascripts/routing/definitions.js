@@ -34,7 +34,7 @@
 		usersModel.fetch({
 			'reset': true,
 			'success': function () {
-				app.pageContent.show(new app.view.UsersListView({ 'collection': usersModel }));
+				app.pageContent.show(new app.view.UserListView({ 'collection': usersModel }));
 			},
 			'error': function (model, jqXHR) {
 				app.service.RoutingService.errorUserRedirection(jqXHR);

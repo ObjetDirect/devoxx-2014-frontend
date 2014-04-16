@@ -11,7 +11,7 @@
  * @since 1.0
  */
 
-(function (Backbone, _, i18n, app) {
+(function ($, Backbone, _, i18n, app) {
 	'use strict';
 
 	/**
@@ -72,11 +72,11 @@
 						RoutingService.errorUserRedirection(jqXHR);
 					},
 					'success': function () {
-						router.navigate('users', { 'trigger': true });
+						app.router.navigate('users', { 'trigger': true });
 					}
 				}
 			);
 		}
 	});
 	
-}(Backbone, _, window.i18n, window.app));
+}(jQuery, Backbone, _, window.i18n, window.app));
